@@ -267,6 +267,80 @@ The tests verify:
 The API is the doorway to the decision engine, not the source
 of the system's intelligence.
 
+## Milestone 6 - AI Explanation Layer
+
+Status: Complete
+
+### Model
+
+GPT-6 Luna
+
+### Purpose
+
+The language-model layer translates an existing deterministic architecture
+assessment into stakeholder-friendly guidance.
+
+It does not determine or modify the architecture recommendation.
+
+### AI Output Contract
+
+Structured responses use the `WorkflowExplanation` Pydantic model.
+
+Required fields:
+
+- why this approach;
+- why not more autonomy;
+- proposed architecture;
+- human checkpoint;
+- first experiment;
+- success metric.
+
+### Architectural Boundary
+
+`ArchitectureAssessment` remains authoritative.
+
+`WorkflowExplanation` is interpretive.
+
+The deterministic recommendation exists before the generative model is called.
+
+### Testing Strategy
+
+Automated tests use an injected fake OpenAI client rather than live API calls.
+
+This keeps automated testing:
+
+- deterministic;
+- fast;
+- inexpensive;
+- offline-capable;
+- independent of model wording.
+
+A separate manual integration test verifies the real OpenAI API.
+
+### Live Integration Result
+
+The Campaign Message Drafting workflow was deterministically classified as:
+
+`llm_assisted_workflow`
+
+The live GPT-6 Luna explanation preserved that recommendation.
+
+It recommended a bounded LLM-assisted drafting workflow rather than escalating
+the system to autonomous agent behavior.
+
+The explanation also preserved an important distinction between a formal
+architecture-level approval requirement and prudent marketer review before
+publication.
+
+### Key Insight
+
+Deterministic software and generative AI can hold different responsibilities
+inside the same application.
+
+The rules engine determines the architecture.
+
+The language model explains the architecture.
+
 # Bugs & Lessons
 
 ### TestClient HTTP dependency deprecation
@@ -283,3 +357,19 @@ The important lesson is that a passing test suite can still contain
 maintenance signals that should not simply be ignored.
 
 Warnings are useful evidence that a dependency or API contract is changing.
+
+### OpenAI integration authentication and billing
+
+The first live integration attempt failed with `401 invalid_api_key`.
+
+After rotating the credential, authentication succeeded and the next attempt
+returned `429 credit_balance_exhausted`.
+
+This demonstrated three independent external-system layers:
+
+1. application behavior;
+2. authentication;
+3. API billing/quota.
+
+After a valid project API key and API credits were configured, the live
+structured explanation completed successfully.
