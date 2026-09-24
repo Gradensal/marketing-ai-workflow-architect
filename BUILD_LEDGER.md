@@ -146,3 +146,39 @@ It is deliberately not described as statistical or AI confidence.
 
 When human approval is required, an explicit approval reason must
 also be present.
+
+## Milestone 3 - Deterministic Architecture Decision Engine
+
+Status: Complete
+
+### Core Design
+
+Architecture selection occurs before the LLM explanation layer.
+
+The initial recommendation is produced by explicit software rules rather
+than by asking a language model to choose an architecture.
+
+### Decision Priority
+
+The first version evaluates architecture in this order:
+
+1. high-risk workflows requiring human-first design;
+2. highly predictable workflows suited to deterministic automation;
+3. ambiguous, multi-tool workflows suited to agentic execution;
+4. remaining interpretive workflows suited to LLM assistance.
+
+### Important Insight
+
+Tool count alone does not justify an agent.
+
+A workflow can interact with many systems while remaining deterministic
+if its sequence and decision rules are predictable.
+
+Agentic architecture becomes more appropriate when ambiguity, dynamic
+tool use, and meaningful actions occur together.
+
+### Safety Principle
+
+A workflow may technically satisfy characteristics associated with an
+agent while still being inappropriate for autonomous execution because
+business risk or data sensitivity takes priority.
