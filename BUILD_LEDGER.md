@@ -39,7 +39,7 @@ Mac Studio
 
 - FastAPI: 0.141.1
 - Uvicorn: 0.53.0
-- HTTPX: 0.28.1
+- httpx2: 2.13.1
 - python-dotenv: 1.2.3
 - pytest: 9.1.1
 - Pydantic: 2.13.5
@@ -70,10 +70,6 @@ Status: Complete
   first checkpoint.
 
 ---
-
-# Bugs & Lessons
-
-None yet.
 
 ## Milestone 2 - Workflow Domain Model
 
@@ -215,3 +211,75 @@ marketing workflows through the deterministic architecture engine.
 The same software system can recommend different levels of automation
 because architecture selection is based on workflow characteristics rather
 than an assumption that every workflow benefits from greater AI autonomy.
+
+## Milestone 5 - FastAPI Backend & API Contract
+
+Status: Complete
+
+### API Boundary
+
+The deterministic architecture engine is now accessible through HTTP.
+
+### Endpoints
+
+- `GET /health`
+- `POST /api/v1/assess`
+
+### Request Contract
+
+`POST /api/v1/assess` accepts the existing `WorkflowInput`
+Pydantic model.
+
+Invalid workflow data is rejected before reaching the decision engine.
+
+### Response Contract
+
+Successful assessments return the existing typed
+`ArchitectureAssessment` model.
+
+### Architectural Decision
+
+FastAPI does not contain architecture-selection logic.
+
+The API layer delegates business decisions to
+`backend/app/services/decision_engine.py`.
+
+This keeps HTTP concerns separate from domain logic.
+
+### Testing
+
+Added API integration tests using FastAPI `TestClient`.
+
+The tests verify:
+
+- health response;
+- successful deterministic assessment;
+- high-risk human-first assessment;
+- invalid scale rejection;
+- unexpected-field rejection.
+
+### Evidence
+
+`assets/screenshots/03-fastapi-assessment-endpoint.png`
+
+### Key Insight
+
+The API is the doorway to the decision engine, not the source
+of the system's intelligence.
+
+# Bugs & Lessons
+
+### TestClient HTTP dependency deprecation
+
+During FastAPI API testing, all five API tests passed but Starlette emitted
+a deprecation warning indicating that its `TestClient` now prefers `httpx2`
+over the legacy `httpx` package.
+
+The test dependency was updated to:
+
+- httpx2: 2.13.1
+
+The important lesson is that a passing test suite can still contain
+maintenance signals that should not simply be ignored.
+
+Warnings are useful evidence that a dependency or API contract is changing.
