@@ -42,20 +42,20 @@ Mac Studio
 - HTTPX: 0.28.1
 - python-dotenv: 1.2.3
 - pytest: 9.1.1
-- Pydantic: pending environment verification
+- Pydantic: 2.13.5
 
 ---
 
 # Build Progress
 
-## Milestone 0 — Environment Audit
+## Milestone 0 - Environment Audit
 
 Status: Complete
 
 Verified the development environment and compared it with the previous
 Gradensal Signature Build.
 
-## Milestone 1 — Project Foundation
+## Milestone 1 - Project Foundation
 
 Status: In Progress
 
@@ -74,3 +74,33 @@ Status: In Progress
 # Bugs & Lessons
 
 None yet.
+
+## Milestone 2 - Workflow Domain Model
+
+Status: In Progress
+
+### Domain Decision
+
+A workflow will initially be represented using seven architecture-relevant
+signals:
+
+- repeatability;
+- ambiguity;
+- tool use;
+- external actions;
+- business risk;
+- data sensitivity;
+- mandatory human approval.
+
+Each scored signal uses a 1–5 scale.
+
+### Engineering Decision
+
+Pydantic validates the workflow before it reaches the architecture engine.
+
+Unexpected fields are rejected rather than silently ignored.
+
+### Key Insight
+
+Before deciding whether a workflow needs AI, the business process must first be
+translated into explicit, inspectable characteristics.
