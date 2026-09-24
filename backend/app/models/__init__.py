@@ -1,3 +1,4 @@
+from backend.app.models.analysis import WorkflowAnalysis
 from backend.app.models.assessment import (
     ArchitectureAssessment,
     ArchitectureRecommendation,
@@ -11,6 +12,7 @@ __all__ = [
     "ArchitectureAssessment",
     "ArchitectureRecommendation",
     "RiskLevel",
+    "WorkflowAnalysis",
     "WorkflowExplanation",
     "WorkflowInput",
 ]

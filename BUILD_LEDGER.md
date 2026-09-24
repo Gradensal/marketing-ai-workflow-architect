@@ -341,6 +341,69 @@ The rules engine determines the architecture.
 
 The language model explains the architecture.
 
+## Milestone 7 - Combined Analysis API
+
+Status: Complete
+
+### Endpoint
+
+`POST /api/v1/analyze`
+
+### Purpose
+
+The combined analysis endpoint performs two sequential operations:
+
+1. deterministic architecture assessment;
+2. structured stakeholder explanation.
+
+### Response
+
+The endpoint returns a typed `WorkflowAnalysis` containing:
+
+- `ArchitectureAssessment`;
+- `WorkflowExplanation`.
+
+### Architectural Boundary
+
+The deterministic assessment is generated before the OpenAI service is called.
+
+The generative layer therefore receives an existing architecture decision
+rather than making the decision itself.
+
+### Dependency Injection
+
+The explanation generator is supplied through FastAPI dependency injection.
+
+Production uses the real OpenAI explanation service.
+
+Automated API tests replace that dependency with a deterministic fake.
+
+This prevents test runs from:
+
+- consuming API credits;
+- requiring internet access;
+- depending on model availability;
+- depending on variable model wording.
+
+### Graceful Degradation
+
+`POST /api/v1/assess` remains independent of OpenAI.
+
+This means the deterministic architecture engine remains usable even if the
+generative explanation service is unavailable.
+
+### Evidence
+
+`assets/screenshots/04-combined-analysis-api.png`
+
+### Key Insight
+
+External AI should be treated as a dependency rather than embedded throughout
+the application.
+
+Keeping the deterministic capability independent makes the system easier to
+test, maintain, and degrade gracefully.
+
 # Bugs & Lessons
 
 ### TestClient HTTP dependency deprecation

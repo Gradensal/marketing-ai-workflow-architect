@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from backend.app.api import (
+    analysis_router,
     assessment_router,
     health_router,
 )
@@ -24,3 +25,4 @@ app = FastAPI(
 
 app.include_router(health_router)
 app.include_router(assessment_router)
+app.include_router(analysis_router)
