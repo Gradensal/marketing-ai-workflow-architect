@@ -182,3 +182,36 @@ tool use, and meaningful actions occur together.
 A workflow may technically satisfy characteristics associated with an
 agent while still being inappropriate for autonomous execution because
 business risk or data sensitivity takes priority.
+
+## Milestone 4 - Decision Engine Demonstration
+
+Status: Complete
+
+### Demonstration
+
+Created a developer-facing demonstration that runs four representative
+marketing workflows through the deterministic architecture engine.
+
+### Demonstrated Outcomes
+
+1. Weekly Campaign Reporting
+   → Deterministic Automation
+
+2. Campaign Message Drafting
+   → LLM-Assisted Workflow
+
+3. Campaign Anomaly Investigation
+   → Agentic Workflow
+
+4. Autonomous Customer Pricing
+   → Keep Human / Redesign First
+
+### Evidence
+
+`assets/screenshots/02-four-architecture-decisions.png`
+
+### Key Insight
+
+The same software system can recommend different levels of automation
+because architecture selection is based on workflow characteristics rather
+than an assumption that every workflow benefits from greater AI autonomy.
