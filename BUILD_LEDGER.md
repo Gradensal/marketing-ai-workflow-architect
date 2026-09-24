@@ -57,7 +57,7 @@ Gradensal Signature Build.
 
 ## Milestone 1 - Project Foundation
 
-Status: In Progress
+Status: Complete
 
 ### Decisions
 
@@ -77,7 +77,7 @@ None yet.
 
 ## Milestone 2 - Workflow Domain Model
 
-Status: In Progress
+Status: Complete
 
 ### Domain Decision
 
@@ -104,3 +104,45 @@ Unexpected fields are rejected rather than silently ignored.
 
 Before deciding whether a workflow needs AI, the business process must first be
 translated into explicit, inspectable characteristics.
+
+### Architecture Assessment Output Model
+
+The decision engine will return a typed `ArchitectureAssessment`
+rather than an unstructured dictionary.
+
+The assessment contains:
+
+- architecture recommendation;
+- risk level;
+- decision strength;
+- human approval requirement;
+- human approval reason;
+- rationale;
+- warnings.
+
+### Vocabulary Decision
+
+Architecture recommendations use an explicit enum:
+
+- deterministic automation;
+- LLM-assisted workflow;
+- agentic workflow;
+- keep human / redesign first.
+
+Risk levels use:
+
+- low;
+- medium;
+- high.
+
+### Important Semantic Decision
+
+`decision_strength` describes how strongly the deterministic rule
+conditions support a recommendation.
+
+It is deliberately not described as statistical or AI confidence.
+
+### Validation Rule
+
+When human approval is required, an explicit approval reason must
+also be present.
