@@ -1,0 +1,352 @@
+/* ==================================================
+   GSB-002 — Final Product Polish
+================================================== */
+
+
+/* --------------------------------------------------
+   Header metadata
+-------------------------------------------------- */
+
+.header-meta {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.system-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    var(--text-muted);
+
+  font-size: 9px;
+  font-weight: 650;
+
+  letter-spacing: 0.12em;
+}
+
+
+.system-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    var(--gradensal-cyan);
+
+  box-shadow:
+    0 0 12px
+    rgba(23, 189, 247, 0.5);
+}
+
+
+/* --------------------------------------------------
+   Interactive score track
+-------------------------------------------------- */
+
+.score-slider {
+  background:
+    linear-gradient(
+      90deg,
+      var(--gradensal-cyan) 0%,
+      var(--gradensal-electric)
+        var(--score-progress),
+      rgba(83, 207, 251, 0.12)
+        var(--score-progress),
+      rgba(83, 207, 251, 0.12)
+        100%
+    );
+}
+
+
+/* --------------------------------------------------
+   Disabled interaction state
+-------------------------------------------------- */
+
+.score-field-disabled {
+  opacity: 0.62;
+
+  transition:
+    opacity 160ms ease;
+}
+
+
+.score-slider:disabled {
+  cursor: not-allowed;
+}
+
+
+.score-slider:disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(23, 189, 247, 0.035);
+}
+
+
+.score-slider:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(23, 189, 247, 0.035);
+}
+
+
+.text-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.4;
+
+  transform: none;
+}
+
+
+.approval-control:has(
+  input:disabled
+) {
+  cursor: not-allowed;
+
+  opacity: 0.62;
+}
+
+
+/* --------------------------------------------------
+   Stable CTA dimensions
+-------------------------------------------------- */
+
+.primary-button {
+  min-width: 158px;
+}
+
+
+.primary-button:disabled {
+  transform: none;
+}
+
+
+/* --------------------------------------------------
+   Product footer
+-------------------------------------------------- */
+
+.product-footer {
+  min-height: 112px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-top: 54px;
+
+  padding:
+    30px
+    0
+    12px;
+
+  border-top:
+    1px solid
+    var(--border-subtle);
+}
+
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.footer-brand img {
+  width: 30px;
+  height: 30px;
+
+  object-fit: contain;
+
+  opacity: 0.92;
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(23, 189, 247, 0.12)
+    );
+}
+
+
+.footer-brand div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.footer-brand strong {
+  color:
+    var(--text-secondary);
+
+  font-size: 11px;
+  font-weight: 650;
+
+  letter-spacing: 0.04em;
+}
+
+
+.footer-brand span {
+  color:
+    var(--text-muted);
+
+  font-size: 9px;
+}
+
+
+.footer-copy {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  color:
+    var(--text-muted);
+
+  font-size: 9px;
+
+  text-align: right;
+}
+
+
+.footer-separator {
+  color:
+    rgba(83, 207, 251, 0.25);
+}
+
+
+/* --------------------------------------------------
+   Refined desktop workspace
+-------------------------------------------------- */
+
+@media (min-width: 1200px) {
+  .workspace {
+    gap: 26px;
+  }
+
+  .workspace-panel {
+    padding: 30px;
+  }
+}
+
+
+/* --------------------------------------------------
+   Improved intermediate viewport
+-------------------------------------------------- */
+
+@media (
+  min-width: 961px
+)
+and (
+  max-width: 1199px
+) {
+  .workspace {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+  }
+
+  .score-scale {
+    grid-template-columns:
+      minmax(95px, 1fr)
+      minmax(150px, 1.2fr)
+      minmax(95px, 1fr);
+  }
+}
+
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .system-status {
+    display: none;
+  }
+
+  .product-footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .footer-copy {
+    justify-content: flex-start;
+
+    text-align: left;
+  }
+}
+
+
+/* --------------------------------------------------
+   Small-screen interaction targets
+-------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .text-input {
+    min-height: 48px;
+  }
+
+  .text-area {
+    min-height: 150px;
+  }
+
+  .score-slider {
+    height: 7px;
+  }
+
+  .score-slider::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+  }
+
+  .score-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+  }
+
+  .text-button {
+    min-height: 36px;
+
+    padding:
+      0
+      13px;
+  }
+
+  .product-footer {
+    margin-top: 40px;
+
+    padding-top: 24px;
+  }
+
+  .footer-copy {
+    display: grid;
+
+    gap: 5px;
+  }
+
+  .footer-separator {
+    display: none;
+  }
+}

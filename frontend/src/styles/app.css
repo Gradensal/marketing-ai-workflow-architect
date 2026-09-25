@@ -1,0 +1,1841 @@
+.app-shell {
+  width: min(calc(100% - 40px), var(--page-max-width));
+  margin: 0 auto;
+  padding-bottom: 64px;
+}
+
+
+/* --------------------------------------------------
+   Header
+-------------------------------------------------- */
+
+.brand-header {
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 18px rgba(23, 189, 247, 0.14)
+    );
+}
+
+.brand-wordmark {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.brand-name {
+  color: var(--text-primary);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.brand-subtitle {
+  color: var(--text-muted);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+}
+
+.build-badge {
+  padding: 8px 12px;
+
+  border:
+    1px solid
+    var(--border-subtle);
+
+  border-radius: 999px;
+
+  color: var(--gradensal-ice);
+
+  background:
+    rgba(14, 131, 233, 0.06);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* --------------------------------------------------
+   Hero
+-------------------------------------------------- */
+
+.hero {
+  position: relative;
+
+  min-height: 390px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(320px, 0.85fr);
+
+  align-items: center;
+
+  gap: 48px;
+
+  padding:
+    72px
+    0
+    58px;
+
+  overflow: hidden;
+}
+
+.hero-copy {
+  position: relative;
+
+  z-index: 2;
+}
+
+.eyebrow {
+  margin:
+    0
+    0
+    18px;
+
+  color: var(--gradensal-cyan);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+.hero-title {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size:
+    clamp(
+      46px,
+      6vw,
+      78px
+    );
+
+  font-weight: 600;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+.hero-title-accent {
+  display: block;
+
+  margin-top: 8px;
+
+  background:
+    linear-gradient(
+      100deg,
+      var(--gradensal-electric),
+      var(--gradensal-cyan),
+      var(--gradensal-frost)
+    );
+
+  background-clip: text;
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  max-width: 680px;
+
+  margin:
+    26px
+    0
+    0;
+
+  color: var(--text-secondary);
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.hero-principle {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 26px;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+.principle-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background:
+    var(--gradensal-cyan);
+
+  box-shadow:
+    0 0 16px
+    rgba(23, 189, 247, 0.7);
+}
+
+
+/* --------------------------------------------------
+   Hero Logo
+-------------------------------------------------- */
+
+.hero-art {
+  position: relative;
+
+  min-height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-art::before {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(23, 189, 247, 0.19),
+      rgba(4, 80, 209, 0.08) 42%,
+      transparent 70%
+    );
+
+  filter: blur(18px);
+}
+
+.hero-logo {
+  position: relative;
+
+  z-index: 1;
+
+  width:
+    min(
+      100%,
+      370px
+    );
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 24px
+      rgba(23, 189, 247, 0.14)
+    )
+    drop-shadow(
+      0 30px 80px
+      rgba(4, 80, 209, 0.16)
+    );
+}
+
+
+/* --------------------------------------------------
+   Workspace
+-------------------------------------------------- */
+
+.workspace {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.92fr)
+    minmax(0, 1.08fr);
+
+  gap: 22px;
+}
+
+.workspace-panel {
+  min-height: 430px;
+
+  padding: 28px;
+
+  border:
+    1px solid
+    var(--border-subtle);
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 28, 63, 0.78),
+      rgba(3, 10, 28, 0.92)
+    );
+
+  box-shadow:
+    var(--shadow-panel);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+}
+
+.panel-label {
+  margin:
+    0
+    0
+    9px;
+
+  color:
+    var(--gradensal-cyan);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.panel-title {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 25px;
+  font-weight: 600;
+
+  letter-spacing: -0.025em;
+}
+
+.panel-description {
+  max-width: 600px;
+
+  margin:
+    11px
+    0
+    0;
+
+  color:
+    var(--text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* --------------------------------------------------
+   Temporary Placeholder
+-------------------------------------------------- */
+
+.placeholder {
+  min-height: 270px;
+
+  margin-top: 30px;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 32px;
+
+  border:
+    1px dashed
+    var(--border-active);
+
+  border-radius:
+    var(--radius-md);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 131, 233, 0.07),
+      rgba(23, 189, 247, 0.025)
+    );
+
+  color:
+    var(--text-muted);
+
+  text-align: center;
+
+  line-height: 1.7;
+}
+
+.placeholder strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    var(--text-secondary);
+}
+
+
+/* --------------------------------------------------
+   Responsive
+-------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    order: -1;
+
+    min-height: 220px;
+  }
+
+  .hero-logo {
+    width: 230px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 620px) {
+  .app-shell {
+    width:
+      min(
+        calc(100% - 24px),
+        var(--page-max-width)
+      );
+  }
+
+  .brand-header {
+    height: 74px;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 44px;
+  }
+
+  .hero-title {
+    font-size:
+      clamp(
+        40px,
+        13vw,
+        58px
+      );
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .workspace-panel {
+    padding: 21px;
+  }
+}
+
+/* ==================================================
+   GSB-002 — Workflow Intake
+================================================== */
+
+.workflow-form {
+  margin-top: 30px;
+}
+
+.form-actions-top {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  color: var(--gradensal-ice);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.text-button:hover {
+  color: var(--gradensal-cyan);
+}
+
+
+/* --------------------------------------------------
+   Text fields
+-------------------------------------------------- */
+
+.field-group {
+  margin-bottom: 22px;
+}
+
+.field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.field-hint {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.text-input,
+.text-area {
+  width: 100%;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+
+  outline: none;
+
+  color: var(--text-primary);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(2, 10, 28, 0.92),
+      rgba(6, 22, 52, 0.72)
+    );
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.text-input {
+  height: 46px;
+  padding: 0 14px;
+}
+
+.text-area {
+  min-height: 132px;
+
+  padding: 13px 14px;
+
+  resize: vertical;
+
+  line-height: 1.55;
+}
+
+.text-input::placeholder,
+.text-area::placeholder {
+  color: rgba(159, 185, 207, 0.42);
+}
+
+.text-input:hover,
+.text-area:hover {
+  border-color: rgba(83, 207, 251, 0.24);
+}
+
+.text-input:focus,
+.text-area:focus {
+  border-color: var(--border-active);
+
+  background:
+    rgba(3, 15, 38, 0.95);
+
+  box-shadow:
+    0 0 0 3px rgba(23, 189, 247, 0.06),
+    0 0 26px rgba(23, 189, 247, 0.035);
+}
+
+
+/* --------------------------------------------------
+   Architecture signals
+-------------------------------------------------- */
+
+.signal-section {
+  margin-top: 38px;
+}
+
+.signal-section-heading {
+  margin-bottom: 20px;
+}
+
+.signal-kicker {
+  margin: 0 0 7px;
+
+  color: var(--gradensal-cyan);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+}
+
+.signal-section-heading h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.signal-section-heading > p:last-child {
+  max-width: 470px;
+
+  margin: 8px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* --------------------------------------------------
+   Score fields
+-------------------------------------------------- */
+
+.score-field {
+  padding: 20px 0;
+
+  border-top:
+    1px solid
+    rgba(83, 207, 251, 0.085);
+}
+
+.score-field-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 22px;
+}
+
+.score-label {
+  color: var(--text-primary);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.score-description {
+  max-width: 390px;
+
+  margin: 5px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.score-value {
+  min-width: 52px;
+
+  color: var(--gradensal-ice);
+
+  font-size: 21px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  text-align: right;
+}
+
+.score-value span {
+  margin-left: 2px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+  font-weight: 500;
+}
+
+
+/* --------------------------------------------------
+   Range slider
+-------------------------------------------------- */
+
+.score-slider {
+  width: 100%;
+  height: 5px;
+
+  margin: 20px 0 12px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  border-radius: 999px;
+
+  outline: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gradensal-cobalt),
+      var(--gradensal-electric),
+      var(--gradensal-cyan)
+    );
+}
+
+.score-slider::-webkit-slider-thumb {
+  width: 17px;
+  height: 17px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 2px solid var(--gradensal-frost);
+  border-radius: 50%;
+
+  background: var(--gradensal-electric);
+
+  box-shadow:
+    0 0 0 4px rgba(23, 189, 247, 0.08),
+    0 0 16px rgba(23, 189, 247, 0.30);
+
+  cursor: pointer;
+}
+
+.score-slider::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+
+  border: 2px solid var(--gradensal-frost);
+  border-radius: 50%;
+
+  background: var(--gradensal-electric);
+
+  box-shadow:
+    0 0 16px rgba(23, 189, 247, 0.30);
+
+  cursor: pointer;
+}
+
+
+/* --------------------------------------------------
+   Score scale
+-------------------------------------------------- */
+
+.score-scale {
+  display: grid;
+
+  grid-template-columns:
+    minmax(100px, 1fr)
+    minmax(170px, 1.25fr)
+    minmax(100px, 1fr);
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+}
+
+.score-scale > span:last-child {
+  text-align: right;
+}
+
+.score-markers {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.score-marker {
+  width: 20px;
+  height: 20px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid transparent;
+  border-radius: 50%;
+
+  color: var(--text-muted);
+
+  font-size: 8px;
+
+  transition:
+    color 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.score-marker-active {
+  border-color:
+    rgba(83, 207, 251, 0.20);
+
+  color: var(--gradensal-frost);
+
+  background:
+    rgba(14, 131, 233, 0.14);
+
+  box-shadow:
+    0 0 14px
+    rgba(23, 189, 247, 0.10);
+}
+
+
+/* --------------------------------------------------
+   Human approval
+-------------------------------------------------- */
+
+.approval-control {
+  position: relative;
+
+  margin-top: 26px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  padding: 17px;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 131, 233, 0.05),
+      rgba(2, 10, 28, 0.52)
+    );
+
+  cursor: pointer;
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.approval-control:hover {
+  border-color:
+    rgba(83, 207, 251, 0.25);
+}
+
+.approval-control input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.approval-box {
+  position: relative;
+
+  width: 19px;
+  height: 19px;
+
+  flex: 0 0 19px;
+
+  margin-top: 1px;
+
+  border:
+    1px solid
+    var(--border-active);
+
+  border-radius: 5px;
+
+  background:
+    rgba(2, 10, 28, 0.9);
+
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.approval-control input:checked
++ .approval-box {
+  border-color:
+    var(--gradensal-cyan);
+
+  background:
+    var(--gradensal-electric);
+
+  box-shadow:
+    0 0 18px
+    rgba(23, 189, 247, 0.22);
+}
+
+.approval-control input:checked
++ .approval-box::after {
+  content: "";
+
+  position: absolute;
+
+  left: 5px;
+  top: 2px;
+
+  width: 5px;
+  height: 9px;
+
+  border: solid white;
+  border-width: 0 2px 2px 0;
+
+  transform: rotate(45deg);
+}
+
+.approval-control strong {
+  display: block;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.approval-control small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* --------------------------------------------------
+   Form footer
+-------------------------------------------------- */
+
+.form-footer {
+  margin-top: 26px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.form-footer p {
+  max-width: 280px;
+
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.primary-button {
+  min-height: 46px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 0 19px;
+
+  border: 1px solid
+    rgba(83, 207, 251, 0.18);
+
+  border-radius: var(--radius-sm);
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      105deg,
+      var(--gradensal-cobalt),
+      var(--gradensal-electric)
+    );
+
+  font-size: 12px;
+  font-weight: 700;
+
+  box-shadow:
+    0 12px 32px
+    rgba(4, 80, 209, 0.19);
+
+  transition:
+    transform 160ms ease,
+    opacity 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 17px 40px
+    rgba(4, 80, 209, 0.28);
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.34;
+
+  box-shadow: none;
+}
+
+
+/* --------------------------------------------------
+   Review state
+-------------------------------------------------- */
+
+.review-state {
+  min-height: 270px;
+
+  margin-top: 30px;
+
+  padding: 26px;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(2, 10, 28, 0.78),
+      rgba(4, 23, 54, 0.55)
+    );
+}
+
+.review-state > strong {
+  display: block;
+
+  margin-top: 72px;
+
+  color: var(--text-secondary);
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+.review-state > strong + p {
+  max-width: 370px;
+
+  margin: 10px auto 0;
+
+  color: var(--text-muted);
+
+  text-align: center;
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.review-status {
+  margin-bottom: 14px;
+
+  color: var(--gradensal-cyan);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+}
+
+.review-state h3 {
+  margin: 0 0 8px;
+
+  color: var(--text-primary);
+
+  font-size: 22px;
+  font-weight: 600;
+
+  letter-spacing: -0.02em;
+}
+
+.review-state > p {
+  color: var(--text-muted);
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.review-summary {
+  margin: 24px 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.review-summary div {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 11px 13px;
+
+  border-bottom:
+    1px solid
+    rgba(83, 207, 251, 0.055);
+
+  background:
+    rgba(14, 131, 233, 0.03);
+}
+
+.review-summary div:last-child {
+  border-bottom: 0;
+}
+
+.review-summary dt {
+  color: var(--text-muted);
+
+  font-size: 10px;
+}
+
+.review-summary dd {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-align: right;
+}
+
+.next-step-note {
+  padding: 14px;
+
+  border-left:
+    2px solid
+    var(--gradensal-cyan);
+
+  border-radius:
+    0
+    var(--radius-sm)
+    var(--radius-sm)
+    0;
+
+  color: var(--text-secondary);
+
+  background:
+    rgba(23, 189, 247, 0.045);
+
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.next-step-note code {
+  margin-left: 4px;
+
+  color: var(--gradensal-ice);
+}
+
+
+/* --------------------------------------------------
+   Form responsiveness
+-------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .score-field-header {
+    gap: 12px;
+  }
+
+  .score-scale {
+    grid-template-columns:
+      80px
+      minmax(130px, 1fr)
+      80px;
+  }
+
+  .form-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form-footer p {
+    max-width: none;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+}
+
+/* ==================================================
+   GSB-002 — UX Refinement Layer
+================================================== */
+
+
+/* --------------------------------------------------
+   Workspace balance
+-------------------------------------------------- */
+
+.workspace {
+  align-items: start;
+}
+
+
+/*
+   Keep the analysis panel visible while a desktop user
+   works through the longer workflow form.
+*/
+@media (min-width: 961px) {
+  .workspace > .workspace-panel:last-child {
+    position: sticky;
+    top: 24px;
+
+    border-color:
+      rgba(83, 207, 251, 0.20);
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(7, 25, 58, 0.88),
+        rgba(3, 11, 30, 0.95)
+      );
+
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.38),
+      0 0 50px rgba(4, 80, 209, 0.035);
+  }
+}
+
+
+/* --------------------------------------------------
+   Form utility actions
+-------------------------------------------------- */
+
+.form-actions-top {
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  margin-bottom: 24px;
+}
+
+
+.text-button {
+  min-height: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    0
+    11px;
+
+  border:
+    1px solid
+    rgba(83, 207, 251, 0.12);
+
+  border-radius: 999px;
+
+  color:
+    var(--text-secondary);
+
+  background:
+    rgba(14, 131, 233, 0.035);
+
+  font-size: 11px;
+
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+
+.text-button:hover {
+  color:
+    var(--gradensal-frost);
+
+  border-color:
+    rgba(83, 207, 251, 0.28);
+
+  background:
+    rgba(14, 131, 233, 0.08);
+}
+
+
+/*
+   "Load example" should look useful rather than
+   equivalent to the destructive Reset action.
+*/
+.form-actions-top .text-button:first-child {
+  color:
+    var(--gradensal-ice);
+
+  border-color:
+    rgba(23, 189, 247, 0.22);
+
+  background:
+    rgba(14, 131, 233, 0.09);
+}
+
+
+.form-actions-top .text-button:first-child:hover {
+  background:
+    rgba(14, 131, 233, 0.15);
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* --------------------------------------------------
+   Form readability
+-------------------------------------------------- */
+
+.field-label {
+  font-size: 13px;
+}
+
+
+.field-hint {
+  font-size: 11px;
+}
+
+
+.text-input,
+.text-area {
+  font-size: 13px;
+}
+
+
+.text-input {
+  height: 48px;
+
+  padding:
+    0
+    15px;
+}
+
+
+.text-area {
+  min-height: 138px;
+
+  padding:
+    14px
+    15px;
+
+  line-height: 1.6;
+}
+
+
+/* --------------------------------------------------
+   Architecture signal hierarchy
+-------------------------------------------------- */
+
+.signal-section {
+  margin-top: 42px;
+}
+
+
+.signal-section-heading {
+  margin-bottom: 22px;
+}
+
+
+.signal-kicker {
+  font-size: 10px;
+}
+
+
+.signal-section-heading h3 {
+  font-size: 19px;
+
+  letter-spacing: -0.015em;
+}
+
+
+.signal-section-heading > p:last-child {
+  max-width: 500px;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* --------------------------------------------------
+   Score controls
+-------------------------------------------------- */
+
+.score-field {
+  padding:
+    24px
+    0;
+}
+
+
+.score-field-header {
+  gap: 28px;
+}
+
+
+.score-label {
+  font-size: 13px;
+}
+
+
+.score-description {
+  max-width: 420px;
+
+  margin-top: 6px;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+
+.score-value {
+  min-width: 60px;
+
+  color:
+    var(--gradensal-cyan);
+
+  font-size: 24px;
+  font-weight: 650;
+}
+
+
+.score-value span {
+  font-size: 11px;
+}
+
+
+/* --------------------------------------------------
+   Slider refinement
+-------------------------------------------------- */
+
+.score-slider {
+  height: 6px;
+
+  margin:
+    20px
+    0
+    14px;
+
+  cursor: pointer;
+}
+
+
+.score-slider::-webkit-slider-thumb {
+  width: 19px;
+  height: 19px;
+
+  border:
+    2px solid
+    var(--gradensal-frost);
+
+  background:
+    var(--gradensal-electric);
+
+  box-shadow:
+    0 0 0 5px rgba(23, 189, 247, 0.07),
+    0 0 20px rgba(23, 189, 247, 0.32);
+}
+
+
+.score-slider::-moz-range-thumb {
+  width: 19px;
+  height: 19px;
+
+  border:
+    2px solid
+    var(--gradensal-frost);
+
+  background:
+    var(--gradensal-electric);
+
+  box-shadow:
+    0 0 0 5px rgba(23, 189, 247, 0.07),
+    0 0 20px rgba(23, 189, 247, 0.32);
+}
+
+
+/* --------------------------------------------------
+   Score labels
+-------------------------------------------------- */
+
+.score-scale {
+  grid-template-columns:
+    minmax(110px, 1fr)
+    minmax(190px, 1.35fr)
+    minmax(110px, 1fr);
+
+  gap: 14px;
+
+  font-size: 10px;
+}
+
+
+.score-marker {
+  width: 22px;
+  height: 22px;
+
+  font-size: 9px;
+}
+
+
+.score-marker-active {
+  border-color:
+    rgba(83, 207, 251, 0.30);
+
+  color:
+    var(--gradensal-frost);
+
+  background:
+    rgba(14, 131, 233, 0.18);
+
+  box-shadow:
+    0 0 18px
+    rgba(23, 189, 247, 0.14);
+}
+
+
+/* --------------------------------------------------
+   Human approval card
+-------------------------------------------------- */
+
+.approval-control {
+  margin-top: 30px;
+
+  padding: 18px;
+
+  border-color:
+    rgba(83, 207, 251, 0.15);
+}
+
+
+.approval-control strong {
+  font-size: 13px;
+}
+
+
+.approval-control small {
+  max-width: 440px;
+
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* --------------------------------------------------
+   Form footer
+-------------------------------------------------- */
+
+.form-footer {
+  margin-top: 30px;
+
+  padding-top: 22px;
+
+  border-top:
+    1px solid
+    rgba(83, 207, 251, 0.08);
+}
+
+
+.form-footer p {
+  font-size: 11px;
+}
+
+
+.primary-button {
+  min-height: 48px;
+
+  padding:
+    0
+    21px;
+
+  font-size: 12px;
+
+  letter-spacing: 0.01em;
+}
+
+
+/* --------------------------------------------------
+   Analysis / review card
+-------------------------------------------------- */
+
+.review-state {
+  min-height: 300px;
+
+  padding: 28px;
+
+  border-color:
+    rgba(83, 207, 251, 0.17);
+}
+
+
+.review-status {
+  margin-bottom: 16px;
+
+  font-size: 10px;
+}
+
+
+.review-state h3 {
+  font-size: 23px;
+}
+
+
+.review-state > p {
+  max-width: 470px;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+.review-summary {
+  margin:
+    26px
+    0;
+}
+
+
+.review-summary div {
+  min-height: 43px;
+
+  padding:
+    12px
+    14px;
+}
+
+
+.review-summary dt {
+  font-size: 11px;
+}
+
+
+.review-summary dd {
+  color:
+    var(--gradensal-frost);
+
+  font-size: 11px;
+}
+
+
+.next-step-note {
+  padding: 15px 16px;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* --------------------------------------------------
+   Better keyboard accessibility
+-------------------------------------------------- */
+
+.text-button:focus-visible,
+.primary-button:focus-visible,
+.score-slider:focus-visible,
+.text-input:focus-visible,
+.text-area:focus-visible {
+  outline:
+    2px solid
+    var(--gradensal-cyan);
+
+  outline-offset: 3px;
+}
+
+
+.approval-control:has(
+  input:focus-visible
+) {
+  border-color:
+    var(--gradensal-cyan);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(23, 189, 247, 0.07);
+}
+
+
+/* --------------------------------------------------
+   Desktop content density
+-------------------------------------------------- */
+
+@media (min-width: 1200px) {
+  .workspace {
+    grid-template-columns:
+      minmax(0, 1.03fr)
+      minmax(0, 0.97fr);
+
+    gap: 24px;
+  }
+}
+
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (
+  min-width: 621px
+)
+and (
+  max-width: 960px
+) {
+  .workspace-panel {
+    min-height: auto;
+  }
+
+  .review-state {
+    min-height: 240px;
+  }
+}
+
+
+/* --------------------------------------------------
+   Mobile score experience
+-------------------------------------------------- */
+
+@media (max-width: 620px) {
+  .form-actions-top {
+    justify-content: flex-start;
+  }
+
+
+  .score-field {
+    padding:
+      22px
+      0;
+  }
+
+
+  .score-description {
+    max-width: none;
+  }
+
+
+  /*
+     On a narrow phone the five intermediate markers
+     create clutter. The score is already shown prominently
+     above the slider.
+  */
+  .score-scale {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 18px;
+  }
+
+
+  .score-markers {
+    display: none;
+  }
+
+
+  .score-scale > span:last-child {
+    text-align: right;
+  }
+
+
+  .review-state {
+    padding: 21px;
+  }
+}
+
+
+/* --------------------------------------------------
+   Respect reduced-motion preference
+-------------------------------------------------- */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    transition-duration:
+      0.01ms !important;
+
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+  }
+}

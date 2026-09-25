@@ -1,0 +1,38 @@
+:root {
+  /* Gradensal brand */
+  --gradensal-ink: #020611;
+  --gradensal-navy: #001556;
+  --gradensal-cobalt-deep: #023496;
+  --gradensal-cobalt: #0450d1;
+  --gradensal-electric: #0e83e9;
+  --gradensal-cyan: #17bdf7;
+  --gradensal-ice: #53cffb;
+  --gradensal-frost: #e7fafd;
+
+  /* Surfaces */
+  --surface-page: #020611;
+  --surface-panel: rgba(6, 17, 41, 0.78);
+  --surface-panel-strong: rgba(7, 22, 52, 0.94);
+  --surface-soft: rgba(14, 131, 233, 0.07);
+
+  /* Text */
+  --text-primary: #f4fbff;
+  --text-secondary: #9fb9cf;
+  --text-muted: #6f8da8;
+
+  /* Borders */
+  --border-subtle: rgba(83, 207, 251, 0.14);
+  --border-active: rgba(83, 207, 251, 0.42);
+
+  /* Effects */
+  --glow-cyan: 0 0 42px rgba(23, 189, 247, 0.13);
+  --shadow-panel: 0 24px 80px rgba(0, 0, 0, 0.34);
+
+  /* Shape */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Layout */
+  --page-max-width: 1440px;
+}
