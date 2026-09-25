@@ -1,6 +1,11 @@
+import logging
+
 from collections.abc import Callable
 
-from fastapi import APIRouter, Depends
+from fastapi import (
+    APIRouter,
+    Depends,
+)
 
 from backend.app.models import (
     ArchitectureAssessment,
@@ -8,59 +13,94 @@ from backend.app.models import (
     WorkflowExplanation,
     WorkflowInput,
 )
+
 from backend.app.services import (
     assess_workflow,
     generate_workflow_explanation,
 )
 
 
-ExplanationGenerator = Callable[
-    [WorkflowInput, ArchitectureAssessment],
-    WorkflowExplanation,
-]
+logger = logging.getLogger(__name__)
 
 
 router = APIRouter(
     prefix="/api/v1",
-    tags=["Analysis"],
+    tags=["analysis"],
 )
 
 
-def get_explanation_generator() -> ExplanationGenerator:
-    """
-    Provide the explanation generator.
+ExplanationGenerator = Callable[
+    [
+        WorkflowInput,
+        ArchitectureAssessment,
+    ],
+    WorkflowExplanation,
+]
 
-    FastAPI dependency injection allows tests to replace this
-    external AI dependency without making live API calls.
-    """
 
+def get_explanation_generator(
+) -> ExplanationGenerator:
     return generate_workflow_explanation
 
 
 @router.post(
     "/analyze",
     response_model=WorkflowAnalysis,
-    summary="Assess and explain workflow architecture",
 )
-def analyze_workflow_endpoint(
+def analyze_workflow(
     workflow: WorkflowInput,
     explanation_generator: ExplanationGenerator = Depends(
-        get_explanation_generator
+        get_explanation_generator,
     ),
 ) -> WorkflowAnalysis:
     """
-    Run deterministic architecture assessment first, then generate
-    a stakeholder-friendly explanation of that existing decision.
+    Analyze a workflow in two deliberately separated stages.
+
+    Stage 1:
+    The deterministic decision engine produces the
+    authoritative architecture assessment.
+
+    Stage 2:
+    The AI explanation service translates that assessment
+    into stakeholder-friendly guidance.
+
+    If Stage 2 fails, Stage 1 remains valid and is still
+    returned to the caller.
     """
 
-    assessment = assess_workflow(workflow)
-
-    explanation = explanation_generator(
+    assessment = assess_workflow(
         workflow,
-        assessment,
     )
+
+
+    try:
+        explanation = explanation_generator(
+            workflow,
+            assessment,
+        )
+
+    except Exception:
+        logger.exception(
+            "AI explanation generation failed after "
+            "the deterministic assessment completed."
+        )
+
+        return WorkflowAnalysis(
+            assessment=assessment,
+            explanation=None,
+            explanation_status="unavailable",
+            explanation_message=(
+                "The architecture assessment completed "
+                "successfully, but the AI explanation is "
+                "temporarily unavailable. The deterministic "
+                "recommendation remains valid."
+            ),
+        )
+
 
     return WorkflowAnalysis(
         assessment=assessment,
         explanation=explanation,
+        explanation_status="available",
+        explanation_message=None,
     )
