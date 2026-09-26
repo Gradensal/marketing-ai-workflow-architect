@@ -67,6 +67,52 @@ The system then returns:
 
 ---
 
+# Product Experience
+
+<p align="center">
+  <img
+    src="assets/screenshots/01-product-overview.png"
+    alt="Gradensal Marketing AI Workflow Architect product overview"
+    width="100%"
+  />
+</p>
+
+The product turns workflow characteristics into an explicit architecture recommendation while keeping the deterministic policy layer visually separate from the generative explanation layer.
+
+### LLM-Assisted Workflow
+
+<p align="center">
+  <img
+    src="assets/screenshots/02-llm-assisted-analysis.png"
+    alt="LLM-assisted workflow architecture recommendation"
+    width="100%"
+  />
+</p>
+
+### Bounded Agentic Workflow
+
+<p align="center">
+  <img
+    src="assets/screenshots/03-agentic-analysis.png"
+    alt="Agentic workflow recommendation with explicit human approval"
+    width="100%"
+  />
+</p>
+
+### Human-First Boundary
+
+<p align="center">
+  <img
+    src="assets/screenshots/04-human-first-analysis.png"
+    alt="High-risk workflow recommendation to keep human control and redesign first"
+    width="100%"
+  />
+</p>
+
+The final scenario is intentionally important: the system can conclude that **more AI autonomy is the wrong architecture** when business risk and consequential external actions exceed the defined boundary.
+
+---
+
 # The Four Architecture Outcomes
 
 ## 1. Deterministic Automation
